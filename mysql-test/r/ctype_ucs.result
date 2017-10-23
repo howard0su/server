@@ -4574,6 +4574,7 @@ Warning	1292	Truncated incorrect time value: '77760000'
 #
 # MDEV-13530 VARBINARY doesn't convert to to BLOB for sizes 65533, 65534 and 65535
 #
+set sql_mode="";
 CREATE TABLE t1 (c1 VARCHAR(32766) CHARACTER SET ucs2);
 DESCRIBE t1;
 Field	Type	Null	Key	Default	Extra
@@ -4593,6 +4594,7 @@ DESCRIBE t1;
 Field	Type	Null	Key	Default	Extra
 c1	mediumtext	YES		NULL	
 DROP TABLE t1;
+set sql_mode=default;
 #
 # End of 5.5 tests
 #

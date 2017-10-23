@@ -836,6 +836,7 @@ SELECT SEC_TO_TIME(CONVERT(900*24*60*60 USING ucs2));
 --echo # MDEV-13530 VARBINARY doesn't convert to to BLOB for sizes 65533, 65534 and 65535
 --echo #
 
+set sql_mode="";
 CREATE TABLE t1 (c1 VARCHAR(32766) CHARACTER SET ucs2);
 DESCRIBE t1;
 DROP TABLE t1;
@@ -847,6 +848,7 @@ DROP TABLE t1;
 CREATE TABLE t1 (c1 VARCHAR(32768) CHARACTER SET ucs2);
 DESCRIBE t1;
 DROP TABLE t1;
+set sql_mode=default;
 
 
 --echo #
